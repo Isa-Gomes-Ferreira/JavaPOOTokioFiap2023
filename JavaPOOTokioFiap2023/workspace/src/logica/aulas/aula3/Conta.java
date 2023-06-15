@@ -14,7 +14,7 @@ public abstract class Conta {
 	protected Date dataAbertura;
 	protected double saldo;
 	protected Cliente cliente; // composição
-	private static long contador; // está como private porque pertence a superclasse Conta
+	private static long contador; // está como private porque pertence a superclasse Conta, não pode ser acessa em outras classes // variável estática pertence apenas à classe
 
 	// construtor
 	public Conta(Cliente cliente, int numeroConta, int agencia, String senha) {

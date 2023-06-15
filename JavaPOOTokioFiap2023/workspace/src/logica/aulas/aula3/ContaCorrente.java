@@ -18,8 +18,7 @@ public class ContaCorrente extends Conta {
 	}
 
 	@Override
-	// garante que estamos sobrescrevendo o método na classe filha - e não criando
-	// um novo.
+	// garante que estamos sobrescrevendo o método na classe filha - e não criando um novo.
 	public void exibirSaldo() {
 		double saldoTotal = this.saldo + this.saldoInvestimento;
 		System.out.println("Cliente: " + this.cliente.getNomeTitular());

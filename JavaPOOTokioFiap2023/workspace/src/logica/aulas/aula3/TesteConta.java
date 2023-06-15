@@ -1,16 +1,17 @@
 package logica.aulas.aula3;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class TesteConta {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 
 		// Objetos
-		Cliente isabelle = new Cliente("Isabelle", "123456789", "123456789", "Rua 123 de Oliveira, 4");
-		Cliente henrique = new Cliente("Henrique", "987654321", "987654321", "Rua 321 de Oliveira, 3");
-		ContaCorrente contaIsabelle = new ContaCorrente(isabelle, 1, 1, "teste");
-		ContaCorrente contaHenrique = new ContaCorrente(henrique, 2, 1, "teste");
+		Cliente clienteIsabelle = new Cliente("Isabelle", "123456789", "123456789", "Rua 123 de Oliveira, 4", "19/12/2004");
+		Cliente clienteHenrique = new Cliente("Henrique", "987654321", "987654321", "Rua 321 de Oliveira, 3", "06/08/2004");
+		ContaCorrente contaIsabelle = new ContaCorrente(clienteIsabelle, 1, 1, "teste");
+		ContaCorrente contaHenrique = new ContaCorrente(clienteHenrique, 2, 1, "teste");
 		CDB cdb = new CDB();
 		LCA lca = new LCA();
 		LCI lci = new LCI();
@@ -45,6 +46,12 @@ public class TesteConta {
 		
 		contaHenrique.investimento(cdb, 1000);
 		contaHenrique.exibirSaldo();
+		
+		System.out.println(contaIsabelle); //mostra onde o objeto está alocado, o endereço de memória (em hexa)
+		System.out.println(contaHenrique);
+		
+		System.out.println(clienteIsabelle.getNomeTitular());
+		
 	}
 
 }
