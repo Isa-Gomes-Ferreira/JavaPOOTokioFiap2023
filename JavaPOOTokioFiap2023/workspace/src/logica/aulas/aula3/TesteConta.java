@@ -9,7 +9,7 @@ public class TesteConta {
 
 		// Objetos
 		Cliente clienteIsabelle = new Cliente("Isabelle", "123456789", "123456789", "Rua 123 de Oliveira, 4", "19/12/2004");
-		Cliente clienteHenrique = new Cliente("Henrique", "987654321", "987654321", "Rua 321 de Oliveira, 3", "06/08/2004");
+		Cliente clienteHenrique = new Cliente("Henrique", "987654321", "987654321", "Rua 321 de Oliveira, 3", "03/08/2004");
 		ContaCorrente contaIsabelle = new ContaCorrente(clienteIsabelle, 1, 1, "teste");
 		ContaCorrente contaHenrique = new ContaCorrente(clienteHenrique, 2, 1, "teste");
 		CDB cdb = new CDB();
