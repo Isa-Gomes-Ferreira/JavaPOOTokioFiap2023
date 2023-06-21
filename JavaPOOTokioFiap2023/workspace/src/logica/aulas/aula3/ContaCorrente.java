@@ -10,11 +10,12 @@ public class ContaCorrente extends Conta {
 		// super se refere ao construtor da classe mãe (superclass - classe genérica)
 	}
 
-	public void resgatar(double valor) {
+	public void resgatar(double valor) throws SaldoInsuficiente {
 		if (this.saldoInvestimento >= valor) {
 			this.saldoInvestimento -= valor;
 			this.depositar(valor);
-		}
+		} else 
+			throw new SaldoInsuficiente("Saldo insuficiente, tente novamente");
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class ContaCorrente extends Conta {
 	}
 
 	// design pattern Strategy
-	public void investimento(Produto produto, double valor) {
+	public void investimento(Produto produto, double valor) throws SaldoInsuficiente {
 		boolean teste = this.sacar(valor);
 		if(teste == true) {
 			this.saldoInvestimento += produto.investir(valor);

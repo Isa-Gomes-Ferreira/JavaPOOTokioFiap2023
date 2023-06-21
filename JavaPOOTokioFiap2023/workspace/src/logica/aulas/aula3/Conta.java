@@ -29,12 +29,13 @@ public abstract class Conta {
 	// Métodos
 	
 	// sacar
-	public boolean sacar(double valor) {
+	public boolean sacar(double valor) throws SaldoInsuficiente {
 		if(valor > 0) {
 			if (this.saldo >= valor) {
 				this.saldo -= valor;
 				return true;
-			}
+			} else
+				throw new SaldoInsuficiente("Saldo insuficiente, tente novamente");
 		}
 		return false;
 	}
@@ -48,7 +49,7 @@ public abstract class Conta {
 	public abstract void exibirSaldo(); //abstract no método força a reescrita do método na classe filha (subclass)
 	
 	// transferir
-	public void transferir(Conta conta, double valor) {
+	public void transferir(Conta conta, double valor) throws SaldoInsuficiente {
 		boolean teste = this.sacar(valor);
 		if (teste == true){
 			conta.depositar(valor);

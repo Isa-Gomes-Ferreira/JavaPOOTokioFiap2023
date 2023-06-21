@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class TesteConta {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws SaldoInsuficiente, ParseException {
 
 		// Objetos
 		Cliente clienteIsabelle = new Cliente("Isabelle", "123456789", "123456789", "Rua 123 de Oliveira, 4", "19/12/2004");
