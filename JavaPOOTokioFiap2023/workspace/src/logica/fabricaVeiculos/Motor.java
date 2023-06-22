@@ -1,4 +1,4 @@
-package fabricaVeiculos;
+package logica.fabricaVeiculos;
 
 /**
  * 
