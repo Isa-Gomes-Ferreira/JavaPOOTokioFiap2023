@@ -1,4 +1,4 @@
-package logica.fabricaVeiculos;
+package logica.exercicios.fabricaVeiculos;
 
 import java.text.ParseException;
 

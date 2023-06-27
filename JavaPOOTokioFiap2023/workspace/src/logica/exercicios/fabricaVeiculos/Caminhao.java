@@ -1,4 +1,4 @@
-package logica.fabricaVeiculos;
+package logica.exercicios.fabricaVeiculos;
 
 /**
  * 
@@ -10,12 +10,12 @@ package logica.fabricaVeiculos;
  *
  */
 
-public class Moto extends Veiculo {
+public class Caminhao extends Veiculo {
 
-	public Moto(String marca, String cor, String modelo, String anoDeFabrica, int limiteMaximo, Motor motor, Roda roda,
-			Transmissao transmissao) {
+	public Caminhao(String marca, String cor, String modelo, String anoDeFabrica, int limiteMaximo, Motor motor,
+			Roda roda, Transmissao transmissao) {
+
 		super(marca, cor, modelo, anoDeFabrica, limiteMaximo, motor, roda, transmissao);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class Moto extends Veiculo {
 		} else if (velocidadeDesejada >= this.velocidadeMaxima) {
 			this.velocidadeAtual = this.velocidadeMaxima;
 			System.err.println("Nao eh possivel acelerar, pois a velocidade maxima é " + this.velocidadeMaxima);
-			System.out.println("Velocidade atual " + this.velocidadeMaxima + "Km/h");
+			System.err.println("Velocidade atual " + this.velocidadeMaxima + "Km/h");
 		} else {
 			System.err.println("A quantidade de voce deseja acelerar nao eh valida");
 		}
@@ -55,12 +55,13 @@ public class Moto extends Veiculo {
 		} else {
 			System.err.println("O valor inserido nao eh valido");
 		}
+			
 
 	}
 
 	@Override
 	public void mostrarDados() {
-		System.out.println("\nExibindo dados da moto: ");
+		System.out.println("\nExibindo dados do caminhao: ");
 		System.out.println("----------------------------------------------------------");
 		System.out.println("\nMarca - " + this.getMarca() + "\nModelo - " + this.getModelo() + "\nCor - " + this.getCor() 
 		+ "\nAno de fabricacao - "	+ this.anoDeFabrica + "\nVelocidade maxima - " + this.getLimiteMaximo() + "Km/h" + motor + roda + transmissao);
@@ -73,6 +74,19 @@ public class Moto extends Veiculo {
 			return true;
 		}
 		return false;
+	}
+
+	public void descarregamento() {
+		System.out.println("\nDecarregando... ");
+		System.out.println("Descarregando a cacamba do caminhao: " + this.marca + " - " + this.modelo + "\n");
+	}
+
+	public void carregamento(boolean carregamento) {
+		if (carregamento == true) {
+			System.out.print("Caminhao esta carregado!");
+		} else {
+			System.out.print("Caminhao esta descarregado!");
+		}
 	}
 
 }

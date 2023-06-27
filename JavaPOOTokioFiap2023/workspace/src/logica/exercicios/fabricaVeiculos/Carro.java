@@ -1,21 +1,21 @@
-package logica.fabricaVeiculos;
+package logica.exercicios.fabricaVeiculos;
 
 /**
  * 
- * @author Felipi
- * @author Guilherme
+ * @author Felipi 
+ * @author Guilherme 
  * @author Ikram
  * @author Isabelle
- * @author Miguel
+ * @author Miguel 
  *
  */
 
-public class Caminhao extends Veiculo {
+public class Carro extends Veiculo {
 
-	public Caminhao(String marca, String cor, String modelo, String anoDeFabrica, int limiteMaximo, Motor motor,
-			Roda roda, Transmissao transmissao) {
-
+	public Carro(String marca, String cor, String modelo, String anoDeFabrica,
+			int limiteMaximo, Motor motor, Roda roda, Transmissao transmissao) {
 		super(marca, cor, modelo, anoDeFabrica, limiteMaximo, motor, roda, transmissao);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -55,13 +55,12 @@ public class Caminhao extends Veiculo {
 		} else {
 			System.err.println("O valor inserido nao eh valido");
 		}
-			
 
 	}
 
 	@Override
 	public void mostrarDados() {
-		System.out.println("\nExibindo dados do caminhao: ");
+		System.out.println("\nExibindo dados do carro: ");
 		System.out.println("----------------------------------------------------------");
 		System.out.println("\nMarca - " + this.getMarca() + "\nModelo - " + this.getModelo() + "\nCor - " + this.getCor() 
 		+ "\nAno de fabricacao - "	+ this.anoDeFabrica + "\nVelocidade maxima - " + this.getLimiteMaximo() + "Km/h" + motor + roda + transmissao);
@@ -76,17 +75,9 @@ public class Caminhao extends Veiculo {
 		return false;
 	}
 
-	public void descarregamento() {
-		System.out.println("\nDecarregando... ");
-		System.out.println("Descarregando a cacamba do caminhao: " + this.marca + " - " + this.modelo + "\n");
-	}
-
-	public void carregamento(boolean carregamento) {
-		if (carregamento == true) {
-			System.out.print("Caminhao esta carregado!");
-		} else {
-			System.out.print("Caminhao esta descarregado!");
-		}
-	}
-
+	
+//	@Override
+//	public double abastecimento() {
+//		
+//	}
 }
