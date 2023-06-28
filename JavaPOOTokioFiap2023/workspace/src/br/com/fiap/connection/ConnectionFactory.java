@@ -1,4 +1,4 @@
-package logica.aulas.aula7.jdbcConnection;
+package br.com.fiap.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,6 +1,8 @@
-package logica.aulas.aula7.jdbcConnection;
+package br.com.fiap.model;
 
 import java.sql.Date;
+
+import br.com.fiap.util.CriptografiaUtils;
 
 public class Usuario {
 
@@ -15,7 +17,7 @@ public class Usuario {
 	
 	public Usuario(String nome, String senha) {
 		this.nome = nome;
-		this.senha = senha;
+		setSenha (senha);
 		this.dataCadastro = new Date(System.currentTimeMillis());
 	}
 
@@ -40,7 +42,11 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		try {
+			this.senha = CriptografiaUtils.criptografar(senha);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Date getDataCadastro() {

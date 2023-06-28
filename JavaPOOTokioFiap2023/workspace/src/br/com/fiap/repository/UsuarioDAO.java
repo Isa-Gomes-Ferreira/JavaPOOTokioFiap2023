@@ -1,4 +1,4 @@
-package logica.aulas.aula7.jdbcConnection;
+package br.com.fiap.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.fiap.connection.ConnectionFactory;
+import br.com.fiap.model.Usuario;
 
 public class UsuarioDAO {
 
@@ -20,22 +23,22 @@ public class UsuarioDAO {
 	// insert (create)
 	public void insert(Usuario usuario) {
 		String sql = "insert into usuario (nome, senha, dataCadastro) values (?,?,?)";
-		
+
 		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
-			//Complemento da query
+			// Complemento da query
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSenha());
 			stmt.setDate(3, usuario.getDataCadastro());
-			//executar a query
+			// executar a query
 			stmt.execute();
-			//fechar a operação
+			// fechar a operação
 			stmt.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	// selectAll (read)
@@ -45,18 +48,18 @@ public class UsuarioDAO {
 		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
-			
-			while (rs.next()) { //enquanto tiver dados na tabela
+
+			while (rs.next()) { // enquanto tiver dados na tabela
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setDataCadastro(rs.getDate("dataCadastro")); 
-				usuarios.add(usuario); //cada objeto usuário adicionado à lista de usuários
+				usuario.setDataCadastro(rs.getDate("dataCadastro"));
+				usuarios.add(usuario); // cada objeto usuário adicionado à lista de usuários
 			}
 			rs.close();
 			stmt.close();
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return usuarios;
@@ -70,31 +73,49 @@ public class UsuarioDAO {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
-			
-			while (rs.next()) { //enquanto tiver dados na tabela
+
+			while (rs.next()) { // enquanto tiver dados na tabela
 				usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSenha(rs.getString("senha"));
-				usuario.setDataCadastro(rs.getDate("dataCadastro")); 
+				usuario.setDataCadastro(rs.getDate("dataCadastro"));
 			}
 			rs.close();
 			stmt.close();
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return usuario;
-		
+
 	}
 
 	// update
 	public void update(Usuario usuario) {
-		
+		String sql = "update usuario set nome=?, senha=? where id=?";
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getSenha());
+			stmt.setLong(3, usuario.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	// delete
 	public void delete(long id) {
-		
+		String sql = "delete from usuario where id=?";
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			stmt.setLong(1, id);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 }
