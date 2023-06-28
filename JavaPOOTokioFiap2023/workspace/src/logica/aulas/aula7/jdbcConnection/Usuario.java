@@ -4,13 +4,16 @@ import java.sql.Date;
 
 public class Usuario {
 
+	public Usuario(){
+		
+	}
+	
 	private long id;
 	private String nome, senha;
 	private Date dataCadastro;
 	
 	
-	public Usuario(long id, String nome, String senha) {
-		this.id = id;
+	public Usuario(String nome, String senha) {
 		this.nome = nome;
 		this.senha = senha;
 		this.dataCadastro = new Date(System.currentTimeMillis());
